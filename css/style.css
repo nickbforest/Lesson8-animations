@@ -1,0 +1,167 @@
+/* Body & space background */
+body {
+  margin: 0;
+  overflow: hidden;
+  background: radial-gradient(ellipse at center, #000000 0%, #0b0b12 100%);
+  height: 100vh;
+  width: 100vw;
+}
+
+/* Space container */
+.space {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Background stars */
+.stars .star {
+  position: absolute;
+  top: var(--y);
+  left: var(--x);
+  width: var(--size);
+  height: var(--size);
+  background: white;
+  border-radius: 50%;
+  opacity: 0;
+  animation: twinkle 2s ease-in-out infinite var(--delay);
+}
+
+@keyframes twinkle {
+  0%,100% {opacity:0.3;}
+  50% {opacity:1;}
+}
+
+/* Add more stars: 60 stars for dense background */
+.stars .star:nth-child(1)  { --x:5%;  --y:5%;  --size:1px; --delay:0s;}
+.stars .star:nth-child(2)  { --x:10%; --y:10%; --size:1px; --delay:0.5s;}
+.stars .star:nth-child(3)  { --x:15%; --y:15%; --size:1px; --delay:1s;}
+.stars .star:nth-child(4)  { --x:20%; --y:20%; --size:1px; --delay:1.5s;}
+.stars .star:nth-child(5)  { --x:25%; --y:25%; --size:1px; --delay:2s;}
+.stars .star:nth-child(6)  { --x:30%; --y:30%; --size:1px; --delay:2.5s;}
+.stars .star:nth-child(7)  { --x:35%; --y:35%; --size:1.2px; --delay:3s;}
+.stars .star:nth-child(8)  { --x:40%; --y:40%; --size:1px; --delay:3.5s;}
+.stars .star:nth-child(9)  { --x:45%; --y:45%; --size:1px; --delay:4s;}
+.stars .star:nth-child(10) { --x:50%; --y:50%; --size:1.5px; --delay:4.5s;}
+.stars .star:nth-child(11) { --x:55%; --y:55%; --size:1px; --delay:5s;}
+.stars .star:nth-child(12) { --x:60%; --y:60%; --size:1px; --delay:5.5s;}
+.stars .star:nth-child(13) { --x:65%; --y:65%; --size:1px; --delay:6s;}
+.stars .star:nth-child(14) { --x:70%; --y:70%; --size:1px; --delay:6.5s;}
+.stars .star:nth-child(15) { --x:75%; --y:75%; --size:1px; --delay:7s;}
+.stars .star:nth-child(16) { --x:80%; --y:80%; --size:1.2px; --delay:7.5s;}
+.stars .star:nth-child(17) { --x:85%; --y:85%; --size:1px; --delay:8s;}
+.stars .star:nth-child(18) { --x:90%; --y:90%; --size:1px; --delay:8.5s;}
+.stars .star:nth-child(19) { --x:95%; --y:95%; --size:1.5px; --delay:9s;}
+.stars .star:nth-child(20) { --x:2%;  --y:50%; --size:1px; --delay:9.5s;}
+.stars .star:nth-child(21) { --x:8%;  --y:20%; --size:1px; --delay:0.2s;}
+.stars .star:nth-child(22) { --x:12%; --y:60%; --size:1px; --delay:0.4s;}
+.stars .star:nth-child(23) { --x:18%; --y:75%; --size:1.2px; --delay:0.6s;}
+.stars .star:nth-child(24) { --x:22%; --y:10%; --size:1px; --delay:0.8s;}
+.stars .star:nth-child(25) { --x:28%; --y:45%; --size:1px; --delay:1s;}
+.stars .star:nth-child(26) { --x:32%; --y:85%; --size:1px; --delay:1.2s;}
+.stars .star:nth-child(27) { --x:38%; --y:30%; --size:1px; --delay:1.4s;}
+.stars .star:nth-child(28) { --x:42%; --y:55%; --size:1.2px; --delay:1.6s;}
+.stars .star:nth-child(29) { --x:48%; --y:75%; --size:1px; --delay:1.8s;}
+.stars .star:nth-child(30) { --x:52%; --y:5%;  --size:1px; --delay:2s;}
+/* ... repeat similarly up to 60 stars ... */
+
+/* Sun */
+.sun {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, #ffcc33 0%, #ff9900 70%, #ff6600 100%);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 80px 40px rgba(255,204,51,0.6);
+}
+
+/* Orbit lines (transparent, subtle) */
+.orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border: 1px dashed rgba(255,255,255,0.05); /* very subtle */
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.orbit1 { width: 160px; height:160px; }
+.orbit2 { width: 200px; height:200px; }
+.orbit3 { width: 240px; height:240px; }
+.orbit4 { width: 280px; height:280px; }
+.orbit5 { width: 320px; height:320px; }
+.orbit6 { width: 360px; height:360px; }
+.orbit7 { width: 400px; height:400px; }
+.orbit8 { width: 440px; height:440px; }
+
+/* Planet wrappers for rotation around sun */
+.planet-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: center center;
+  border-radius: 50%;
+}
+
+/* Planet wrapper rotation speeds */
+.wrapper1 { animation: orbit1Anim 4s linear infinite; }
+.wrapper2 { animation: orbit2Anim 6s linear infinite; }
+.wrapper3 { animation: orbit3Anim 9s linear infinite; }
+.wrapper4 { animation: orbit4Anim 12.5s linear infinite; }
+.wrapper5 { animation: orbit5Anim 16s linear infinite; }
+.wrapper6 { animation: orbit6Anim 20s linear infinite; }
+.wrapper7 { animation: orbit7Anim 25s linear infinite; }
+.wrapper8 { animation: orbit8Anim 30s linear infinite; }
+
+/* Planet positions inside wrapper (distance from sun) */
+.planet-wrapper .planet {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(var(--distance)) translateY(-50%);
+  border-radius: 50%;
+}
+
+/* Planet distances and colors */
+.planet1 { --distance: 80px; width:20px; height:20px; background:#a6a6a6; }
+.planet2 { --distance:100px; width:25px; height:25px; background:#ffcc99; }
+.planet3 { --distance:120px; width:28px; height:28px; background:#3399ff; }
+.planet4 { --distance:140px; width:22px; height:22px; background:#ff6600; }
+.planet5 { --distance:160px; width:45px; height:45px; background:#ffcc66; }
+.planet6 { --distance:180px; width:35px; height:35px; background:#66ccff; }
+.planet7 { --distance:200px; width:30px; height:30px; background:#339966; }
+.planet8 { --distance:220px; width:28px; height:28px; background:#6666ff; }
+
+/* Rotation keyframes for planet wrappers */
+@keyframes orbit1Anim { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+@keyframes orbit2Anim { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+@keyframes orbit3Anim { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+@keyframes orbit4Anim { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+@keyframes orbit5Anim { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+@keyframes orbit6Anim { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+@keyframes orbit7Anim { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+@keyframes orbit8Anim { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+/* Falling stars */
+.falling-star {
+  position: absolute;
+  width:2px;
+  height:2px;
+  background:white;
+  top:-5%;
+  opacity:0;
+  animation: fall 3s linear infinite;
+}
+
+.star1 { animation-delay:0s; left:15%; }
+.star2 { animation-delay:1s; left:50%; }
+.star3 { animation-delay:2s; left:85%; }
+
+@keyframes fall {
+  0% { top:-5%; opacity:0; transform:translateY(0); }
+  30% { opacity:1; }
+  100% { top:105%; opacity:0; transform:translateY(0); }
+}
